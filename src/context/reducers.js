@@ -13,7 +13,6 @@ export const addItem = (state, item) => {
 export const removeItem = (state, id) => {
   const updatedBasket = [...state.basket];
   const index = updatedBasket.findIndex(bask => bask._id === id);
-  console.log(index);
 
   if (index >= 0) {
     const searchedItem = updatedBasket[index];
@@ -23,5 +22,5 @@ export const removeItem = (state, id) => {
       updatedBasket.splice(index, 1);
     }
     return { ...state, basket: updatedBasket };
-  }
+  } else return state;
 };
