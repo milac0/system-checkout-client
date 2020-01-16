@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import { ADD_ITEM, REMOVE_ITEM, ADD_CODE, REMOVE_CODE } from "./types";
+import { addItem, removeItem } from "./reducers";
 
 const initState = {
   basket: [],
@@ -11,20 +12,9 @@ const initState = {
 function reducer(state, action) {
   switch (action.type) {
     case ADD_ITEM:
-      const index = state.basket.findIndex(
-        item => item._id === action.payload._id
-      );
-      if (index !== -1) {
-        state.basket[index].count += 1;
-      } else {
-        return {
-          ...state,
-          basket: [...state.basket, { ...action.payload, count: 1 }]
-        };
-      }
-      return state;
+      return addItem(state, action.payload);
     case REMOVE_ITEM:
-      console.log("remove");
+      return removeItem(state, action.payload);
     default:
       return state;
   }
