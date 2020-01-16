@@ -1,10 +1,17 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Basket from "./pages/Basket";
 
 const App = () => {
-  fetch("http://localhost:3000/items")
-    .then(res => res.json())
-    .then(data => console.log(data));
-  return <div className="title">hello React!</div>;
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/basket" component={Basket} />
+      </Switch>
+    </Router>
+  );
 };
 
 export default App;
