@@ -1,0 +1,47 @@
+@import "../theme/variables";
+.item {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.container {
+  align-items: center;
+  background: $backgroundGrey;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  padding: 0.5em 0;
+
+  h1 {
+    margin: 0;
+    padding: 0 0.5em;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0 0.5em;
+  }
+}
+
+.buttons {
+  justify-content: center;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  button {
+    @extend %button_count;
+
+    img {
+      height: 0.75em;
+    }
+  }
+}
