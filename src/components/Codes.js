@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { DataContext } from "../context/DataContext";
 import { ADD_CODE, SET_MESSAGE, REMOVE_CODE } from "./../context/types";
@@ -10,6 +10,10 @@ const Codes = () => {
     dispatch
   } = useContext(DataContext);
   const [code, setCode] = useState("");
+
+  useEffect(() => {
+    dispatch({ type: SET_MESSAGE, payload: "" });
+  }, []);
 
   const handleChange = e => {
     setCode(e.target.value);
