@@ -1,0 +1,14 @@
+@import "../theme/variables";
+
+.navbar {
+  background: $primary;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5em;
+  padding: 1em;
+
+  img {
+    height: 30px;
+    padding: 0 1em;
+  }
+}
