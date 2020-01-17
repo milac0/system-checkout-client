@@ -24,3 +24,37 @@ export const removeItem = (state, id) => {
     return { ...state, basket: updatedBasket };
   } else return state;
 };
+
+export const addCode = (state, code) => {
+  const updatedCodes = [...state.codes];
+  let updatedMsg = "";
+
+  if (!updatedCodes.length) {
+    updatedCodes.push(code);
+  } else {
+    const alreadyIncludes = state.codes.some(cod => cod._id === code._id);
+    if (alreadyIncludes) {
+      updatedMsg = "Code is already active.";
+    } else {
+      const checkConjuctionCodes = updatedCodes.some(
+        updatedCode => updatedCode.conjuction === false
+      );
+      if (code.conjuction && !checkConjuctionCodes) {
+        updatedCodes.push(code);
+      } else {
+        updatedMsg = "You can't combine these codes.";
+      }
+    }
+  }
+  return { ...state, codes: updatedCodes, message: updatedMsg };
+};
+
+export const removeCode = (state, id) => {
+  const updatedCodes = [...state.codes];
+  const codes = updatedCodes.filter(code => code._id !== id);
+  return { ...state, codes };
+};
+
+export const setMessage = (state, message) => {
+  return { ...state, message };
+};

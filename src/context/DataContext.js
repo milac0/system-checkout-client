@@ -1,10 +1,23 @@
 import React, { createContext, useReducer } from "react";
-import { ADD_ITEM, REMOVE_ITEM, ADD_CODE, REMOVE_CODE } from "./types";
-import { addItem, removeItem } from "./reducers";
+import {
+  ADD_ITEM,
+  REMOVE_ITEM,
+  ADD_CODE,
+  REMOVE_CODE,
+  SET_MESSAGE
+} from "./types";
+import {
+  addItem,
+  removeItem,
+  setMessage,
+  addCode,
+  removeCode
+} from "./reducers";
 
 const initState = {
   basket: [],
-  code: [],
+  codes: [],
+  message: "",
   quantity: [],
   total: 0
 };
@@ -15,6 +28,12 @@ function reducer(state, action) {
       return addItem(state, action.payload);
     case REMOVE_ITEM:
       return removeItem(state, action.payload);
+    case ADD_CODE:
+      return addCode(state, action.payload);
+    case REMOVE_CODE:
+      return removeCode(state, action.payload);
+    case SET_MESSAGE:
+      return setMessage(state, action.payload);
     default:
       return state;
   }
