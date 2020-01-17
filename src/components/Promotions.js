@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import axios from "axios";
 import { DataContext } from "../context/DataContext";
 import { SET_QUANTITY } from "../context/types";
+import "./promotions.scss";
 
 const Promotions = () => {
   const {
@@ -21,17 +22,20 @@ const Promotions = () => {
   }, [basket]);
 
   return (
-    <div>
+    <div className="promotions">
       <h1>Promotions</h1>
-      {quantity.length
-        ? quantity.map((quant, i) => (
-            <div key={i}>
-              <h2>{quant.quantity}</h2>
-              <h2>{quant.name}</h2>
-              <h2>{quant.price}€</h2>
-            </div>
-          ))
-        : null}
+      <hr />
+      {quantity.length ? (
+        quantity.map((quant, i) => (
+          <div key={i} className="promotions_item">
+            <h2>{quant.quantity}x </h2>
+            <h2>{quant.name}</h2>
+            <h2>for {quant.price}€</h2>
+          </div>
+        ))
+      ) : (
+        <p>No promotions.</p>
+      )}
     </div>
   );
 };

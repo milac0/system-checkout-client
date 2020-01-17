@@ -1,0 +1,31 @@
+@import "../theme/variables";
+
+.codes {
+  text-align: center;
+
+  hr {
+    color: $primary;
+    width: 150px;
+  }
+
+  button {
+    @extend %button_count;
+    width: auto;
+  }
+
+  .codes_active {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    p {
+      font-weight: 700;
+      margin: 0;
+    }
+
+    button {
+      font-size: 0.75rem;
+      background: red;
+    }
+  }
+}
