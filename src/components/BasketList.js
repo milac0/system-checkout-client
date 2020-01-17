@@ -9,7 +9,7 @@ const BasketList = () => {
   return (
     <div className="basket_list">
       {state.basket.length ? (
-        state.basket.map(bask => <Item item={bask} />)
+        state.basket.map((bask, i) => <Item item={bask} key={i} />)
       ) : (
         <p className="basket_msg">Empty basket</p>
       )}
