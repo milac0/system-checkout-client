@@ -58,3 +58,7 @@ export const removeCode = (state, id) => {
 export const setMessage = (state, message) => {
   return { ...state, message };
 };
+
+export const setQuantity = (state, quantity) => {
+  return { ...state, quantity };
+};

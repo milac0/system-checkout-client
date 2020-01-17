@@ -4,14 +4,16 @@ import {
   REMOVE_ITEM,
   ADD_CODE,
   REMOVE_CODE,
-  SET_MESSAGE
+  SET_MESSAGE,
+  SET_QUANTITY
 } from "./types";
 import {
   addItem,
   removeItem,
   setMessage,
   addCode,
-  removeCode
+  removeCode,
+  setQuantity
 } from "./reducers";
 
 const initState = {
@@ -34,6 +36,8 @@ function reducer(state, action) {
       return removeCode(state, action.payload);
     case SET_MESSAGE:
       return setMessage(state, action.payload);
+    case SET_QUANTITY:
+      return setQuantity(state, action.payload);
     default:
       return state;
   }
