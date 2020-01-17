@@ -18,7 +18,7 @@ const Promotions = () => {
         dispatch({ type: SET_QUANTITY, payload: quantity });
       }
     })();
-  }, []);
+  }, [basket]);
 
   return (
     <div>
