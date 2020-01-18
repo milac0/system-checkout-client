@@ -38,8 +38,13 @@ const Codes = () => {
     <div className="codes">
       <hr />
       <form onSubmit={handleSubmit}>
-        <input type="text" value={code} onChange={handleChange} />
-        <button type="submit">CODE</button>
+        <input
+          type="text"
+          value={code}
+          onChange={handleChange}
+          placeholder="code"
+        />
+        <button type="submit">Add</button>
         <p>{message}</p>
       </form>
       <div>

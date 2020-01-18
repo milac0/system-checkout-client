@@ -1,0 +1,19 @@
+@import "../theme/variables";
+
+.checkout {
+  background: $primary;
+  margin: 0 auto;
+  padding: 0.5em;
+  text-align: center;
+
+  p {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  button {
+    @extend %button_count;
+    margin: 0.5em;
+    width: 100px;
+  }
+}

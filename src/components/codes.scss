@@ -3,6 +3,10 @@
 .codes {
   text-align: center;
 
+  input {
+    width: 100px;
+  }
+
   hr {
     color: $primary;
     width: 150px;

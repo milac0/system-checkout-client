@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
+import "./checkout.scss";
 
 const Checkout = () => {
   const [price, setPrice] = useState(0);
@@ -40,11 +41,11 @@ const Checkout = () => {
   }, [basket, codes]);
 
   return (
-    <div>
+    <div className="checkout">
+      <p>Total: {price}€</p>
       <Link to="/checkout">
         <button>Checkout</button>
       </Link>
-      <p>Total: {price}€</p>
     </div>
   );
 };
