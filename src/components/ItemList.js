@@ -10,7 +10,6 @@ const ItemList = () => {
     (async () => {
       const { data } = await axios.get("/items");
       setItems(data);
-      console.log(data);
     })();
   }, []);
 

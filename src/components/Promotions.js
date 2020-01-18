@@ -17,6 +17,8 @@ const Promotions = () => {
           quantity: basket
         });
         dispatch({ type: SET_QUANTITY, payload: quantity });
+      } else {
+        dispatch({ type: SET_QUANTITY, payload: [] });
       }
     })();
   }, [basket]);
@@ -30,7 +32,7 @@ const Promotions = () => {
           <div key={i} className="promotions_item">
             <h2>{quant.quantity}x </h2>
             <h2>{quant.name}</h2>
-            <h2>for {quant.price}€</h2>
+            <h2>{quant.price}€</h2>
           </div>
         ))
       ) : (
