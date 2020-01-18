@@ -2,6 +2,7 @@ import React from "react";
 import BasketList from "./../components/BasketList";
 import Codes from "../components/Codes";
 import Promotions from "../components/Promotions";
+import Checkout from "../components/Checkout";
 
 const Basket = () => {
   return (
@@ -9,6 +10,7 @@ const Basket = () => {
       <BasketList />
       <Promotions />
       <Codes />
+      <Checkout />
     </div>
   );
 };
