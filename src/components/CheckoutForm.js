@@ -29,13 +29,13 @@ const CheckoutDetails = props => {
     e.preventDefault();
     setDisabled(true);
     let { token } = await props.stripe.createToken({ name: email });
-    let response = await fetch("http://localhost:3000/charge", {
+    let response = await axios("/charge", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ id: token.id, email, basket, price })
+      data: JSON.stringify({ id: token.id, email, basket, price })
     });
 
     if (response.ok) {
