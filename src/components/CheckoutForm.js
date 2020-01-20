@@ -15,7 +15,10 @@ const styling = {
 };
 
 const CheckoutDetails = props => {
-  const { dispatch } = useContext(DataContext);
+  const {
+    dispatch,
+    state: { basket, price }
+  } = useContext(DataContext);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -32,9 +35,8 @@ const CheckoutDetails = props => {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ id: token.id, email })
+      body: JSON.stringify({ id: token.id, email, basket, price })
     });
-    console.log(response);
 
     if (response.ok) {
       setMsg("Purchase Complete!");
@@ -74,6 +76,7 @@ const CheckoutDetails = props => {
           <CardExpiryElement style={styling} />
           <CardCVCElement style={styling} />
         </div>
+        <h2>Total: {price}€</h2>
         <button type="submit" disabled={disabled}>
           Pay
         </button>
