@@ -5,6 +5,7 @@ import Basket from "./pages/Basket";
 import Navbar from "./components/Navbar";
 import axios from "axios";
 import DataContextProvider from "./context/DataContext";
+import CheckoutDetails from "./pages/CheckoutDetails";
 
 axios.defaults.baseURL = "http://localhost:3000";
 
@@ -16,6 +17,7 @@ const App = () => {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/basket" component={Basket} />
+          <Route path="/checkout" component={CheckoutDetails} />
         </Switch>
       </Router>
     </DataContextProvider>
