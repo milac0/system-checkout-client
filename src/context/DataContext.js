@@ -5,7 +5,9 @@ import {
   ADD_CODE,
   REMOVE_CODE,
   SET_MESSAGE,
-  SET_QUANTITY
+  SET_QUANTITY,
+  SET_PRICE,
+  RESET_STATE
 } from "./types";
 import {
   addItem,
@@ -13,7 +15,9 @@ import {
   setMessage,
   addCode,
   removeCode,
-  setQuantity
+  setQuantity,
+  setPrice,
+  resetState
 } from "./reducers";
 
 const initState = {
@@ -21,7 +25,7 @@ const initState = {
   codes: [],
   message: "",
   quantity: [],
-  total: 0
+  price: 0
 };
 
 function reducer(state, action) {
@@ -38,6 +42,10 @@ function reducer(state, action) {
       return setMessage(state, action.payload);
     case SET_QUANTITY:
       return setQuantity(state, action.payload);
+    case SET_PRICE:
+      return setPrice(state);
+    case RESET_STATE:
+      return resetState();
     default:
       return state;
   }

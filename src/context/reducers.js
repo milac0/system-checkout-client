@@ -62,3 +62,39 @@ export const setMessage = (state, message) => {
 export const setQuantity = (state, quantity) => {
   return { ...state, quantity };
 };
+
+export const setPrice = state => {
+  const { basket, quantity, codes } = state;
+  let priceArr = basket.map(basketItem => {
+    const index = quantity.findIndex(
+      quantityItem => quantityItem.name === basketItem.name
+    );
+    if (index >= 0) {
+      const quantityItem = quantity[index];
+      const quotient = basketItem.count / quantityItem.quantity;
+
+      const remainder = basketItem.count % quantityItem.quantity;
+      return (
+        remainder * basketItem.price + Math.floor(quotient) * quantityItem.price
+      );
+    } else {
+      return basketItem.price * basketItem.count;
+    }
+  });
+  let sum = priceArr.reduce((a, b) => a + b, 0);
+  if (codes.length > 0 && basket.length > 0) {
+    codes.map(code => {
+      const includesPercentage = code.name.includes("%");
+      if (includesPercentage) {
+        sum = ((100 - code.savings) / 100) * sum;
+      } else {
+        sum = sum - code.savings;
+      }
+    });
+  }
+  return { ...state, price: sum.toFixed(2) };
+};
+
+export const resetState = () => {
+  return { basket: [], codes: [], message: "", quantity: [], price: 0 };
+};
